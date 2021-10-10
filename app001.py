@@ -9,11 +9,11 @@ st.dataframe(dados)
 
 def filtrar():
     
-    filtro = st.sidebar.selectbox('select a column!',['sex',
-                                                          'smoker',
-                                                          'day',
-                                                          'time',
-                                                          'size'])
+    filtro = st.sidebar.selectbox('select a column!',['smoker',
+                                                      'sex',
+                                                      'day',
+                                                      'time',
+                                                      'size'])
     
     selecao = dados['total_bill'].groupby(dados[filtro])\
                                           .mean()\
@@ -22,10 +22,10 @@ def filtrar():
     
     return st.write(selecao)
 
-def plota_grafico(dados:pd.DataFrame, x:pd.Series, color:str):
+def plota_grafico(dados:pd.DataFrame, x:pd.Series, color:pd.Series):
     
     grafico = px.histogram(dados, x, color=color)
-    st.title(x.upper() + ' for ' + color.upper() )
+    st.title(x + ' for ' + color )
     st.plotly_chart(grafico, use_container_width=True)
     
     return None
@@ -35,11 +35,11 @@ filtrar()
 
 plota_grafico(dados, x='total_bill', color='sex')
 
-plota_grafico(dados, x='smoker', color='sex')
+plota_grafico(dados, x='sex', color='smoker')
 
-plota_grafico(dados, x='day', color='sex')
+plota_grafico(dados, x='total_bill', color='day')
 
-plota_grafico(dados, x='time', color='sex')
+plota_grafico(dados, x='total_bill', color='time')
 
 plota_grafico(dados, x='size', color='sex')
 
