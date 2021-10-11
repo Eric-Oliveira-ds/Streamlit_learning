@@ -1,10 +1,9 @@
-import seaborn as sns
 import pandas as pd
 import plotly.express as px 
 import streamlit as st 
 
 st.markdown('# Eric Oliveira App_Learning')
-dados = sns.load_dataset('tips')
+dados = pd.read_csv('tips.csv')
 st.dataframe(dados)
 
 def filtrar():
