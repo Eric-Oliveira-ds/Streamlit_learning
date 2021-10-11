@@ -3,7 +3,7 @@ import plotly.express as px
 import streamlit as st 
 
 st.markdown('# Eric Oliveira App_Learning')
-dados = pd.read_csv('tips.csv')
+dados = pd.read_csv(r'C:/Users/erico/OneDrive/Documentos/GIT projetos/tips.csv')
 st.dataframe(dados)
 
 def filtrar():
